@@ -129,6 +129,17 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Action.hpp" />
+    <ClInclude Include="Card.hpp" />
+    <ClInclude Include="Controller.hpp" />
+    <ClInclude Include="Deck.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Player.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

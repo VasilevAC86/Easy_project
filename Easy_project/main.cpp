@@ -57,8 +57,14 @@
 17. В ходе выполнения хода будем манипулировать объектом "Игра". 
 */
 
-int main() {
+#include"Card.hpp" // Карта
+#include"Deck.hpp" // Колода
+#include"Action.hpp" // Действия внутри хода
+#include"Player.hpp" // Игрок
+#include"Controller.hpp" // Способ управления действиями игрока
+#include"Game.hpp" // Игра
 
+int main() {
 
 	return 0;
 }
