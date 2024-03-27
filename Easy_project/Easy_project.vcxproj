@@ -135,7 +135,9 @@
     <ClInclude Include="Controller.hpp" />
     <ClInclude Include="Deck.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="GameDesk.hpp" />
     <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Rules.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
