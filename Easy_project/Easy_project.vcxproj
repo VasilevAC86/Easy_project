@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CardGame.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +135,7 @@
     <ClInclude Include="Card.hpp" />
     <ClInclude Include="Controller.hpp" />
     <ClInclude Include="Deck.hpp" />
+    <ClInclude Include="Fool.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameDesk.hpp" />
     <ClInclude Include="Player.hpp" />

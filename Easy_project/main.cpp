@@ -63,6 +63,7 @@
 #include"Player.hpp" // Игрок
 #include"Controller.hpp" // Способ управления действиями игрока
 #include"Game.hpp" // Игра
+#include"Fool.hpp"
 
 int main() {
 

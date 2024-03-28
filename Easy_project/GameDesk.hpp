@@ -9,11 +9,28 @@
 #include"Player.hpp" // Игрок
 #include"Card.hpp" // Карты
 
+// Интерфейс внешнего пользователя (просмотрщика стола)
+// Принцип разделения интерфейсов при написании кода программы
+// Игроки не смогут получить доступ к запретной информации
+class iViewerDesk{
+public:
+	virtual int CurrentDeck()const = 0; // Текущее состояние стола
+	// Показывать игроков согласно позициям
+	virtual const Player& PlayerN(int position)const = 0;
+	// Метод для раоты со слотами
+	virtual int CurrentSlots()const = 0;
+	// Возвращаем карту из слота
+	virtual Card SlotN(int position)const = 0;
+};
+
 // Этот класс надо будет отправлять в графический интерфейс для отрисовки
-class GameDesk {
+class GameDesk:public iViewerDesk {
 public: 
 	// Метод для получения себе колоды
 	void SetStartDeck(Deck deck);
+	Deck GetTopCard();
+	Deck GetBottonCard();
+	
 	// Перемещение карты в сброс
 	void DraftCard(Card played);
 	// Можно сделать метод для отправки набора карт в сброс
@@ -24,6 +41,7 @@ public:
 	void KickPlayer(int position); 
 	// Метод доступа к игрокам
 	Player& PlayerN(int position);
+	const iViewPlayer& PlayerN(int position)const;
 	// Геттер текущего кол-ва игроков
 	int CurrentPlayers()const;
 	// Получение доступа к верхней карте колоды
@@ -32,19 +50,21 @@ public:
 	Deck GetBottomCard();
 
 	// Счётчик оставшихся карт в колоде
-	int CurrentDeck();
+	int CurrentDeck()const;
 	
 	// Методы оперирования слотами 
 	// Метод полного доступа
 	void PlaceSlotN(Card card, bool visible, int position);
 	// Положить карту на стол
 	void PlaceSlot(Card card, bool visible); // Что за карта и в каком режиме
-	// Возвращаем карту 
-	Card SlotN(int position);
-	// Геттер слотов
+	// Возвращаем карту из слота
+	Card SlotN(int position)const;
+	// Геттер кол-ва карт на столе
 	int CurrentSlots()const;
-	// Опустошаем слот
+	// Метод для уборки карт со стола (методы сброса карт в отбой будут определять правила с посмщь. этого метода)
 	Card FreeSlot(int position);
+
+	const iViewerDesk& CurrentEnvirement()const;
 private:
 	// Поля для разыгранных, неразыгранных карт, карты на игровом столе
 	Deck newCards_; // место для хранения неразыгранных карт
